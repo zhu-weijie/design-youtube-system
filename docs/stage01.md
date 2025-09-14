@@ -1,3 +1,15 @@
+### **Foundational Monolithic Service**
+
+Problem:
+Establish the most basic end-to-end flow: how can a user upload a video file and have it be playable?
+
+Solution:
+A single, monolithic API server. It will handle a direct HTTP POST request for upload, save the file to its local filesystem, and expose another endpoint to stream the file back to a user.
+
+Trade-offs:
+- Pro: Extremely simple to implement and understand. It provides a "walking skeleton" to validate the core concept.
+- Con: This design is not scalable, has no data durability (a server failure results in data loss), and combines application logic with storage concerns, making it unsuitable for production.
+
 ### **Logical View (C4 Component Diagram)**
 
 ```mermaid
