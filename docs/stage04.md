@@ -1,3 +1,15 @@
+### **Introduce an Asynchronous Transcoding Pipeline**
+
+Problem:
+A single, original video file is not suitable for all users due to varying device capabilities and network speeds. The system needs a way to convert the original upload into multiple formats and resolutions, but doing this synchronously during the upload process would be extremely slow and make the user wait an unacceptably long time.
+
+Solution:
+Create a decoupled, asynchronous transcoding pipeline. When a video is successfully uploaded to a dedicated "uploads" bucket, an event is automatically triggered. This event sends a message containing the video's location to a message queue. A separate fleet of "Transcoding Workers" listens to this queue, picks up the messages, downloads the original video, processes it into multiple formats/resolutions (e.g., 1080p, 720p, 480p), and saves the resulting files to a separate "transcoded-media" bucket.
+
+Trade-offs:
+- Pro: Creates a robust, scalable, and highly responsive system. The user's upload is confirmed instantly, and the heavy processing happens in the background. This adheres to the non-functional requirement for efficiency (NFR5).
+- Con: Introduces new components and complexity, including a message queue and a new worker service. This requires careful monitoring to ensure the pipeline doesn't get backlogged.
+
 ### **Logical View (C4 Component Diagram)**
 
 ```mermaid

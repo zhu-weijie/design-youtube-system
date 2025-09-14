@@ -1,3 +1,15 @@
+### **Implement Direct Uploads via Pre-Signed URLs**
+
+Problem:
+Routing gigabytes of video data through the API server consumes its network bandwidth and CPU, preventing it from handling other requests efficiently. This makes the API server a severe bottleneck and limits the scalability of the entire system.
+
+Solution:
+Shift to a direct-to-storage upload pattern using pre-signed URLs. The client first makes a lightweight API call to the server to signal its intent to upload. The API server authenticates the request, generates a temporary, secure pre-signed URL for the object storage, and returns it to the client. The client then uses this URL to upload the video file directly to the object storage service, completely bypassing the API server for the heavy data transfer.
+
+Trade-offs:
+- Pro: Massively improves the scalability of the API server (NFR3) by offloading the data transfer work. The server is freed up to handle a much higher volume of actual API requests.
+- Con: This pattern introduces more complexity on the client-side, which now needs to handle a two-step upload process.
+
 ### **Logical View (C4 Component Diagram)**
 
 ```mermaid
