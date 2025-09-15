@@ -135,7 +135,7 @@ graph TD
     user -- "Uploads Video File" --> uploads_storage
 ```
 
-### **Stage 5: Add a Metadata Caching Layer**
+### **Stage 5: Parallelize Transcoding with a DAG Workflow**
 
 ```mermaid
 graph TD
@@ -181,7 +181,7 @@ graph TD
     end
 ```
 
-### **Stage 6: Implement Resumable Uploads**
+### **Stage 6: Implement Adaptive Bitrate Streaming (ABS)**
 
 ```mermaid
 graph TD
@@ -222,7 +222,7 @@ graph TD
     video_player -- "Fetches Video Segments" --> transcoded_storage
 ```
 
-### **Stage 7: Achieve High Availability for the Control Plane**
+### **Stage 7: Implement Global Content Delivery via CDN**
 
 ```mermaid
 graph TD
@@ -268,7 +268,7 @@ graph TD
     cdn -- "Pulls from Origin on Cache Miss" --> storage
 ```
 
-### **Stage 8: Add a CDN for Adaptive Bitrate Streaming**
+### **Stage 8: Achieve High Availability for the Control Plane**
 
 ```mermaid
 graph TD
@@ -331,7 +331,7 @@ graph TD
     end
 ```
 
-### **Stage 10: Add a Metadata Caching Layer**
+### **Stage 10: Implement Resumable Uploads**
 
 ```mermaid
 graph TD
@@ -589,7 +589,7 @@ graph TD
     end
 ```
 
-### **Stage 5: Add a Metadata Caching Layer**
+### **Stage 5:Parallelize Transcoding with a DAG Workflow**
 
 ```mermaid
 graph TD
@@ -644,7 +644,7 @@ graph TD
     end
 ```
 
-### **Stage 6: Implement Resumable Uploads**
+### **Stage 6: Implement Adaptive Bitrate Streaming (ABS)**
 
 ```mermaid
 graph TD
@@ -676,7 +676,7 @@ graph TD
     player_lib -- "GET segment-N.ts" --> s3_transcoded
 ```
 
-### **Stage 7: Achieve High Availability for the Control Plane**
+### **Stage 7: Implement Global Content Delivery via CDN**
 
 ```mermaid
 graph TD
@@ -716,7 +716,7 @@ graph TD
     player_lib -- "GET segment-N.ts (via Edge)" --> cloudfront
 ```
 
-### **Stage 8: Add a CDN for Adaptive Bitrate Streaming**
+### **Stage 8: Achieve High Availability for the Control Plane**
 
 ```mermaid
 graph TD
@@ -782,7 +782,7 @@ graph TD
     end
 ```
 
-### **Stage 10: Add a Metadata Caching Layer**
+### **Stage 10: Implement Resumable Uploads**
 
 ```mermaid
 graph TD
