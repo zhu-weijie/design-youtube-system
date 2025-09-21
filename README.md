@@ -2,7 +2,7 @@
 
 ## Logical View (C4 Component Diagram)
 
-### **Stage 1: Foundational Monolithic Service**
+### **Milestone 1: Foundational Monolithic Service**
 
 ```mermaid
 graph TD
@@ -24,7 +24,7 @@ graph TD
     api_server -- "Streams Video (HTTP GET)" --> user
 ```
 
-### **Stage 2: Decouple Storage from the API Server**
+### **Milestone 2: Decouple Storage from the API Server**
 
 ```mermaid
 graph TD
@@ -52,7 +52,7 @@ graph TD
     api_server -- "Streams Video (HTTP GET)" --> user
 ```
 
-### **Stage 3: Implement Direct Uploads via Pre-Signed URLs**
+### **Milestone 3: Implement Direct Uploads via Pre-Signed URLs**
 
 ```mermaid
 graph TD
@@ -87,7 +87,7 @@ graph TD
     user -- "Requests Video Stream" --> api_server
 ```
 
-### **Stage 4: Introduce an Asynchronous Transcoding Pipeline**
+### **Milestone 4: Introduce an Asynchronous Transcoding Pipeline**
 
 ```mermaid
 graph TD
@@ -135,7 +135,7 @@ graph TD
     user -- "Uploads Video File" --> uploads_storage
 ```
 
-### **Stage 5: Parallelize Transcoding with a DAG Workflow**
+### **Milestone 5: Parallelize Transcoding with a DAG Workflow**
 
 ```mermaid
 graph TD
@@ -181,7 +181,7 @@ graph TD
     end
 ```
 
-### **Stage 6: Implement Adaptive Bitrate Streaming (ABS)**
+### **Milestone 6: Implement Adaptive Bitrate Streaming (ABS)**
 
 ```mermaid
 graph TD
@@ -222,7 +222,7 @@ graph TD
     video_player -- "Fetches Video Segments" --> transcoded_storage
 ```
 
-### **Stage 7: Implement Global Content Delivery via CDN**
+### **Milestone 7: Implement Global Content Delivery via CDN**
 
 ```mermaid
 graph TD
@@ -268,7 +268,7 @@ graph TD
     cdn -- "Pulls from Origin on Cache Miss" --> storage
 ```
 
-### **Stage 8: Achieve High Availability for the Control Plane**
+### **Milestone 8: Achieve High Availability for the Control Plane**
 
 ```mermaid
 graph TD
@@ -301,7 +301,7 @@ graph TD
     video_player -- "Fetches media from CDN" --> cdn
 ```
 
-### **Stage 9: Implement a Scalable Transcoding Worker Fleet**
+### **Milestone 9: Implement a Scalable Transcoding Worker Fleet**
 
 ```mermaid
 graph TD
@@ -331,7 +331,7 @@ graph TD
     end
 ```
 
-### **Stage 10: Implement Resumable Uploads**
+### **Milestone 10: Implement Resumable Uploads**
 
 ```mermaid
 graph TD
@@ -367,7 +367,7 @@ graph TD
     uploader -- "Uploads Video Chunks" --> storage
 ```
 
-### **Stage 11: Add a Metadata Caching Layer**
+### **Milestone 11: Add a Metadata Caching Layer**
 
 ```mermaid
 graph TD
@@ -465,7 +465,7 @@ graph TD
 
 ## Physical View (AWS Deployment Diagram)
 
-### **Stage 1: Foundational Monolithic Service**
+### **Milestone 1: Foundational Monolithic Service**
 
 ```mermaid
 graph TD
@@ -491,7 +491,7 @@ graph TD
     browser -- "HTTP Requests" --> container
 ```
 
-### **Stage 2: Decouple Storage from the API Server**
+### **Milestone 2: Decouple Storage from the API Server**
 
 ```mermaid
 graph TD
@@ -520,7 +520,7 @@ graph TD
     browser -- "HTTP Requests" --> container
 ```
 
-### **Stage 3: Implement Direct Uploads via Pre-Signed URLs**
+### **Milestone 3: Implement Direct Uploads via Pre-Signed URLs**
 
 ```mermaid
 graph TD
@@ -550,7 +550,7 @@ graph TD
     browser -- "Uploads Video File (Heavy)" --> s3
 ```
 
-### **Stage 4: Introduce an Asynchronous Transcoding Pipeline**
+### **Milestone 4: Introduce an Asynchronous Transcoding Pipeline**
 
 ```mermaid
 graph TD
@@ -589,7 +589,7 @@ graph TD
     end
 ```
 
-### **Stage 5:Parallelize Transcoding with a DAG Workflow**
+### **Milestone 5:Parallelize Transcoding with a DAG Workflow**
 
 ```mermaid
 graph TD
@@ -644,7 +644,7 @@ graph TD
     end
 ```
 
-### **Stage 6: Implement Adaptive Bitrate Streaming (ABS)**
+### **Milestone 6: Implement Adaptive Bitrate Streaming (ABS)**
 
 ```mermaid
 graph TD
@@ -676,7 +676,7 @@ graph TD
     player_lib -- "GET segment-N.ts" --> s3_transcoded
 ```
 
-### **Stage 7: Implement Global Content Delivery via CDN**
+### **Milestone 7: Implement Global Content Delivery via CDN**
 
 ```mermaid
 graph TD
@@ -716,7 +716,7 @@ graph TD
     player_lib -- "GET segment-N.ts (via Edge)" --> cloudfront
 ```
 
-### **Stage 8: Achieve High Availability for the Control Plane**
+### **Milestone 8: Achieve High Availability for the Control Plane**
 
 ```mermaid
 graph TD
@@ -751,7 +751,7 @@ graph TD
     player_lib -- "Media Requests (via Edge)" --> cloudfront
 ```
 
-### **Stage 9: Implement a Scalable Transcoding Worker Fleet**
+### **Milestone 9: Implement a Scalable Transcoding Worker Fleet**
 
 ```mermaid
 graph TD
@@ -782,7 +782,7 @@ graph TD
     end
 ```
 
-### **Stage 10: Implement Resumable Uploads**
+### **Milestone 10: Implement Resumable Uploads**
 
 ```mermaid
 graph TD
@@ -819,7 +819,7 @@ graph TD
     uploader_lib -- "Uploads Chunks via Pre-Signed URL" --> s3
 ```
 
-### **Stage 11: Add a Metadata Caching Layer**
+### **Milestone 11: Add a Metadata Caching Layer**
 
 ```mermaid
 graph TD
